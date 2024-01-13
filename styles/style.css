@@ -1,0 +1,403 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+li {
+  list-style: none;
+}
+
+input {
+  border: none;
+  outline: none;
+  padding: 3px 8px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  margin-left: 30px;
+  width: 44.8px;
+  height: 44.8px;
+  color: #554cb5;
+  position: relative;
+  background: radial-gradient(11.2px, currentColor 94%, rgba(0, 0, 0, 0));
+}
+
+.loader:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(10.08px at bottom right, rgba(0, 0, 0, 0) 94%, currentColor) top left, radial-gradient(10.08px at bottom left, rgba(0, 0, 0, 0) 94%, currentColor) top right, radial-gradient(10.08px at top right, rgba(0, 0, 0, 0) 94%, currentColor) bottom left, radial-gradient(10.08px at top left, rgba(0, 0, 0, 0) 94%, currentColor) bottom right;
+  background-size: 22.4px 22.4px;
+  background-repeat: no-repeat;
+  animation: loader 1.5s infinite cubic-bezier(0.3, 1, 0, 1);
+}
+
+@keyframes loader {
+  33% {
+    inset: -11.2px;
+    transform: rotate(0deg);
+  }
+  66% {
+    inset: -11.2px;
+    transform: rotate(90deg);
+  }
+  100% {
+    inset: 0;
+    transform: rotate(90deg);
+  }
+}
+.CartBtn {
+  width: 180px;
+  height: 40px;
+  border-radius: 12px;
+  margin: 60px auto 0;
+  border: none;
+  background-color: rgb(255, 208, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: 0.5s;
+  overflow: hidden;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+  position: relative;
+}
+
+.IconContainer {
+  position: absolute;
+  left: -50px;
+  width: 30px;
+  height: 30px;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 2;
+  transition-duration: 0.5s;
+}
+
+.icon {
+  border-radius: 1px;
+}
+
+.text {
+  height: 100%;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(17, 17, 17);
+  z-index: 1;
+  transition-duration: 0.5s;
+  font-size: 1.04em;
+  font-weight: 600;
+}
+
+.CartBtn:hover .IconContainer {
+  transform: translateX(58px);
+  border-radius: 40px;
+  transition-duration: 0.5s;
+}
+
+.CartBtn:hover .text {
+  transform: translate(10px, 0px);
+  transition-duration: 0.5s;
+}
+
+.CartBtn:active {
+  transform: scale(0.95);
+  transition-duration: 0.5s;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: grid;
+  padding: 0 20px;
+  background: #f9f5f3;
+  grid-template-areas: "logo form bookmark ";
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 500px) {
+  header {
+    grid-template-areas: "logo bookmark" " form form";
+  }
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  grid-area: logo;
+}
+header .logo img {
+  height: 100px;
+}
+header .form {
+  grid-area: form;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 700px) {
+  header .form {
+    margin-bottom: 30px;
+  }
+}
+header .form form {
+  padding: 5px;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 20px 20px -4px rgba(38, 57, 77, 0.5);
+  transition: all 0.3s;
+}
+header .form form:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 20px -4px rgba(38, 57, 77, 0.8);
+}
+header .form form input {
+  font-size: 19px;
+  padding: 8px 16px;
+  background: transparent;
+}
+@media (max-width: 700px) {
+  header .form form input {
+    font-size: 16px;
+    padding: 6px 12px;
+  }
+}
+header .form form button {
+  border-radius: 40px;
+  color: white;
+  padding: 10px 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.5s;
+  background: linear-gradient(45deg, #fbda61 30%, #ff5acd 100%);
+}
+header .form form button:hover {
+  scale: 0.8;
+}
+header .bookmark {
+  grid-area: bookmark;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+header .bookmark button {
+  background-color: pink;
+}
+header .bookmark button i {
+  font-size: 25px;
+  color: white;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  flex: 1;
+}
+@media (max-width: 1200px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
+
+section {
+  height: 100%;
+}
+
+main #results {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 107px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+main #results a {
+  background: white;
+  border-top: 2px solid white;
+  padding: 20px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+main #results a:hover {
+  transform: translateY(-2px);
+  background: #f9f5f3;
+}
+main #results a img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+main #results a h4 {
+  color: #fbda61;
+  white-space: nowrap;
+}
+main #results a::-webkit-scrollbar {
+  background-color: white;
+  width: 5px;
+}
+main #results a::-webkit-scrollbar-thumb {
+  background-color: #fbda61;
+}
+
+main #recipe {
+  background-color: #f9f5f3;
+}
+
+#recipe figure {
+  height: 300px;
+  position: relative;
+  background: #a9c9ff;
+  z-index: 1000;
+}
+#recipe figure::before {
+  content: "";
+  display: block;
+  background: red;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.4;
+  background-image: linear-gradient(90deg, #a9c9ff 0%, #ffbbec 100%);
+}
+#recipe figure img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+#recipe figure h1 {
+  font-family: "ubuntu";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 20%) skewY(-6deg);
+  color: white;
+  font-weight: 600;
+  background-color: #a9c9ff;
+  background-image: linear-gradient(90deg, #a9c9ff 0%, #ffbbec 100%);
+  white-space: nowrap;
+  padding: 10px 30px;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.358);
+}
+#recipe figure .like-area {
+  display: flex;
+  justify-content: end;
+  padding: 30px;
+}
+#recipe figure .like-area i {
+  font-size: 26px;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 300ms;
+}
+#recipe figure .like-area i:hover {
+  background: rgb(173, 173, 173);
+}
+
+#recipe .ingredients {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  margin: 40px 0;
+}
+#recipe .ingredients ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 20px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+}
+@media (max-width: 700px) {
+  #recipe .ingredients ul {
+    grid-template-columns: 1fr;
+  }
+}
+#recipe .ingredients ul li {
+  display: flex;
+  gap: 10px;
+}
+#recipe .ingredients ul li i {
+  color: #a9c9ff;
+}
+#recipe .ingredients ul li p {
+  white-space: nowrap;
+  max-width: 290px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+@media (max-width: 500px) {
+  #recipe .ingredients ul li p {
+    max-width: 300px;
+  }
+}
+@media (max-width: 700px) {
+  #recipe .ingredients ul li p {
+    max-width: 450px;
+  }
+}
+
+#recipe .directions {
+  text-align: center;
+  padding-bottom: 40px;
+}
+#recipe .directions h2 {
+  font-family: "Ubuntu";
+  font-size: 30px;
+  transform: skewY(-3deg);
+  font-weight: 600;
+  text-shadow: 0 0 30px #ffbbec;
+  color: #ffbbec;
+}
+#recipe .directions p {
+  margin: 20px 0;
+  padding: 5px;
+}
+#recipe .directions p span {
+  color: #ffbbec;
+}
+#recipe .directions a {
+  padding: 10px 30px;
+  border: 1px solid #a9c9ff;
+  border-radius: 30px;
+  transition: all 300ms;
+}
+#recipe .directions a:hover {
+  background: #a9c9ff;
+  color: white;
+}/*# sourceMappingURL=style.css.map */
