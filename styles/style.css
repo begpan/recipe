@@ -68,7 +68,6 @@ input {
   width: 180px;
   height: 40px;
   border-radius: 12px;
-  margin: 60px auto 0;
   border: none;
   background-color: rgb(255, 208, 0);
   display: flex;
@@ -228,7 +227,7 @@ main {
 }
 @media (max-width: 1200px) {
   main {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 6fr;
   }
 }
 
@@ -260,6 +259,12 @@ main #results a img {
   width: 60px;
   height: 60px;
   border-radius: 50%;
+}
+@media (max-width: 1200px) {
+  main #results a img {
+    width: 50px;
+    height: 50px;
+  }
 }
 main #results a h4 {
   color: #fbda61;
@@ -400,4 +405,64 @@ main #recipe {
 #recipe .directions a:hover {
   background: #a9c9ff;
   color: white;
+}
+
+.bm-area {
+  position: relative;
+  display: block;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.bm-button {
+  cursor: pointer;
+}
+
+.dropdown {
+  display: none;
+  font-size: 13px;
+  position: absolute;
+  overflow: hidden;
+  left: -155px;
+  z-index: 1;
+  min-width: 200px;
+  background: #212121;
+  border: 1px solid #f9a9cc;
+  border-radius: 15px 0 15px 0;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  overflow: auto;
+}
+
+.dropdown a {
+  color: #f9a9cc;
+  padding: 8px 10px;
+  font-size: 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.2s;
+}
+.dropdown a img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.bm-area:hover .dropdown {
+  display: block;
+}
+
+.bm-area:hover button {
+  border-radius: 15px 15px 0 0;
+}
+
+.dropdown a:hover {
+  background: #f9a9cc;
+  color: #212121;
+}
+
+.cart {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
 }/*# sourceMappingURL=style.css.map */

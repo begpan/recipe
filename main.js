@@ -86,6 +86,13 @@ async function controlUrl() {
   }
 }
 
+// sepet alanı
+let basket = [];
 // tarif alanındaki tıklamalarda calısır
 
-function handleClick(e) {}
+function handleClick(e) {
+  if (e.target.id === "add-to-cart") {
+    // butun malzemeleri sepete ekle
+    console.log(recipe.info.ingredients);
+  }
+}
