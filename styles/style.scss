@@ -75,8 +75,6 @@ header {
           font-size: 16px;
           padding: 6px 12px;
         }
-
-       
       }
 
       button {
@@ -88,8 +86,8 @@ header {
         transition: all 0.5s;
         background: linear-gradient(45deg, $yellow 30%, $pink 100%);
 
-        &:hover{
-            scale: 0.80;
+        &:hover {
+          scale: 0.8;
         }
       }
     }
@@ -100,99 +98,94 @@ header {
     display: flex;
     align-items: center;
     justify-content: end;
-    button{
-        background-color: pink;
-    i{
+    button {
+      background-color: pink;
+      i {
         font-size: 25px;
         color: white;
-
-
+      }
     }
-}
   }
 }
 
-
 // main
 
-main{
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr;
-    flex:1;
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  flex: 1;
 
-    @include lg{
-        grid-template-columns: 1fr;
-
-    }
-
+  @include lg {
+    grid-template-columns: 1fr;
+  }
 }
 
-section{
-    height: 100%;
+section {
+  height: 100%;
 }
 
-main #results{
+main #results {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 107px);
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  a {
+    background: white;
+    border-top: 2px solid white;
+    padding: 20px 10px;
+    cursor: pointer;
     display: flex;
-    flex-direction: column;
-    height: calc(100vh - 107px);
-    overflow-y: scroll;
-    overflow-x: hidden;
+    align-items: center;
+    gap: 20px;
 
-    a{
-        background: white;
-        border-top: 2px solid white;
-        padding: 20px 10px;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-
-        &:hover{
-            transform: translateY(-2px);
-            background: #f9f5f3;
-        }
-
-        img{
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-        }
-
-        h4{
-        color: $yellow;
-        white-space: nowrap;
-
-        //!! to do yazılar tasacak
-        }
-
-        &::-webkit-scrollbar{
-            background-color: white;
-            width: 5px;
-        }
-
-        &::-webkit-scrollbar-thumb{
-            background-color: $yellow;
-        }
+    &:hover {
+      transform: translateY(-2px);
+      background: #f9f5f3;
     }
-}
 
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    h4 {
+      color: $yellow;
+      white-space: nowrap;
+
+      //!! to do yazılar tasacak
+    }
+
+    &::-webkit-scrollbar {
+      background-color: white;
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $yellow;
+    }
+  }
+}
 
 // tarif detay alanı
 
-main #recipe{
+main #recipe {
   background-color: #f9f5f3;
 }
 
 // tarif detay resim alanı
-#recipe figure{
+#recipe figure {
   height: 300px;
+
   position: relative;
   background: #a9c9ff;
-  z-index: 1000;
+  z-index: 100;
 
   // resmin uzerine renk geçişi ekleşeme
-  &::before{
-    content: '';
+  &::before {
+    content: "";
     display: block;
     background: red;
     width: 100%;
@@ -200,18 +193,16 @@ main #recipe{
     position: absolute;
     opacity: 0.4;
     background-image: linear-gradient(90deg, #a9c9ff 0%, #ffbbec 100%);
-
-    
   }
 
-  img{
+  img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
   }
 
-  h1{
-    font-family: 'ubuntu';
+  h1 {
+    font-family: "ubuntu";
     position: absolute;
     bottom: 0;
     left: 50%;
@@ -222,83 +213,77 @@ main #recipe{
     background-image: linear-gradient(90deg, #a9c9ff 0%, #ffbbec 100%);
     white-space: nowrap;
     padding: 10px 30px;
-    text-shadow: 0 0 10px rgba(0,0,0, 0.358);
-
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.358);
   }
 
-  .like-area{
-    display: flex;
-    justify-content: end;
+  .like-area {
+    display: flex !important;
+    justify-content: end !important;
     padding: 30px;
 
-    i{
+    i {
       font-size: 26px;
       padding: 5px;
       cursor: pointer;
       border-radius: 10px;
       transition: all 300ms;
-      &:hover{
+      &:hover {
         background: rgb(173, 173, 173);
       }
     }
   }
 }
-
-
 // tarif detay içerik alanı
 
-#recipe .ingredients{
+#recipe .ingredients {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 40px;
   margin: 40px 0;
 
-  ul{
+  ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: 20px;
     column-gap: 40px;
 
-    @include md{
+    @include md {
       grid-template-columns: 1fr;
     }
 
-    li{
+    li {
       display: flex;
       gap: 10px;
 
-      i{
+      i {
         color: #a9c9ff;
       }
 
-      p{
+      p {
         white-space: nowrap;
         max-width: 290px;
         overflow: hidden;
         text-overflow: ellipsis;
 
-        @include sm{
+        @include sm {
           max-width: 300px;
         }
 
-        @include md{
+        @include md {
           max-width: 450px;
         }
       }
     }
-
   }
-
-
 }
 
-#recipe .directions{
+#recipe .directions {
   text-align: center;
   padding-bottom: 40px;
 
-  h2{
-    font-family: 'Ubuntu';
+  h2 {
+    font-family: "Ubuntu";
     font-size: 30px;
     transform: skewY(-3deg);
     font-weight: 600;
@@ -306,23 +291,21 @@ main #recipe{
     color: #ffbbec;
   }
 
-  p{
+  p {
     margin: 20px 0;
     padding: 5px;
-    span{
+    span {
       color: #ffbbec;
     }
   }
-  a{
+  a {
     padding: 10px 30px;
     border: 1px solid #a9c9ff;
     border-radius: 30px;
     transition: all 300ms;
-    &:hover{
+    &:hover {
       background: #a9c9ff;
       color: white;
     }
-
-
   }
 }
