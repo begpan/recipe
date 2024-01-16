@@ -61,6 +61,11 @@
   position: relative;
 }
 
+.CartBtn p,
+.CartBtn i {
+  pointer-events: none;
+}
+
 .IconContainer {
   position: absolute;
   left: -50px;

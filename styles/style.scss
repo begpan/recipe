@@ -116,7 +116,7 @@ main {
   flex: 1;
 
   @include lg {
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 6fr 1fr;
   }
 }
 
@@ -377,4 +377,50 @@ main #recipe {
   display: flex;
   justify-content: center;
   margin: 40px auto;
+}
+
+// sepet
+
+main #cart {
+  div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    h2 {
+      color: #a9c9ff;
+      text-shadow: 0 0 10px rgba(0, 0, 0, 0.136);
+    }
+
+    button {
+      background-color: #a9c9ff;
+      color: white;
+      cursor: pointer;
+      transition: filter 0.3s;
+      &:hover {
+        filter: brightness(70%);
+      }
+    }
+  }
+
+  ul {
+    max-height: 90vh;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: black;
+    }
+
+    i {
+      cursor: pointer;
+      font-size: 20px;
+      &:hover {
+        color: red;
+        background-color: rgba(128, 128, 128, 0.604);
+        border-radius: 4px;
+      }
+    }
+  }
 }

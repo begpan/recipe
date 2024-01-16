@@ -1,3 +1,20 @@
-# recipe
+<h2>Recipe</h2>
 
-I am working on it..
+It is a website created with JavaScript that allows you to search for recipes, like them, print the contents of the liked ones on the screen, and add the saved recipes to the cart.
+
+<h3>Main Features</h3>
+
+-Searching for recipes in the search input </br>
+-Adding recipes to the card, deleting the added ones</br>
+-Show, mark and delete ingredients of favorite recipes</br>
+-Redirect to recipe website for more details</br>
+-Clear the entire contents section with the clear button</br>
+
+<h3>Technologies Used</h3>
+
+•HTML </br>
+•CSS </br>
+•SCSS </br>
+•JavaScript </br>
+
+<h3>Screen Gif</h3>

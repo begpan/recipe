@@ -4,11 +4,13 @@ import { ele, notify, renderLoader } from "/scripts/ui.js";
 import { categories } from "./scripts/constant.js";
 import Recipe from "./scripts/recipe.js";
 
+// uuid kutuphanesinden id olusturma
+import { v4 } from "https://jspm.dev//uuid";
+
 // classın ornegini oluşturma
 
 const search = new Search();
 const recipe = new Recipe();
-console.log(recipe);
 
 //! olay izleyicileri
 
@@ -29,7 +31,11 @@ ele.form.addEventListener("submit", (e) => {
 
 // sayfa yuklenme olayını izle
 
-window.addEventListener("DOMContentLoaded", controlUrl);
+window.addEventListener("DOMContentLoaded", () => {
+  controlUrl;
+
+  renderBasketItems;
+});
 // urldeki id nin değişme olayını izle
 
 window.addEventListener("hashchange", controlUrl);
@@ -43,7 +49,7 @@ ele.recipe_area.addEventListener("click", handleClick);
 
 async function getResults(query) {
   if (!query.trim()) {
-    return notify("arama terimi giriniz");
+    return notify("Please enter some search keyword");
   }
   renderLoader(ele.result_list);
 
@@ -53,7 +59,7 @@ async function getResults(query) {
     await search.fetchResults(query.trim());
 
     if (search.result.error) {
-      notify("aradığığnız kriterlere uygun urun bulunamadı");
+      notify("Recipe not found");
       // veriler hatalı geldiğinde loaderi kaldır
       ele.result_list.innerHTML = "";
     } else {
@@ -63,7 +69,7 @@ async function getResults(query) {
     // sonucları ekrana bas
   } catch (err) {
     // hata olursa bildirim ver
-    notify("bir sorun oluştu");
+    notify("Oops! Something went wrong");
 
     ele.result_list.innerHTML = "";
   }
@@ -93,6 +99,79 @@ let basket = [];
 function handleClick(e) {
   if (e.target.id === "add-to-cart") {
     // butun malzemeleri sepete ekle
-    console.log(recipe.info.ingredients);
+
+    recipe.info.ingredients.forEach((title) => {
+      // her bir trarif için obkje oluştur ve id ekle
+
+      const newItem = {
+        id: v4(),
+        title,
+      };
+
+      basket.push(newItem);
+    });
+
+    // locali guncelle
+
+    localStorage.setItem("basket", JSON.stringify(basket));
+
+    // sepet arayuzunu guncelle
+
+    renderBasketItems();
   }
 }
+
+// tarif verilerini ekrana basar
+
+function renderBasketItems() {
+  ele.basket_list.innerHTML = basket
+    .map(
+      (i) => `
+  
+  <li id="${i.id}">
+   <i id="delete-item" class="bi bi-x"></i>
+   <span>${i.title}</span>
+  </li>
+  `
+    )
+    .join(" ");
+}
+
+// silme butonuna tıklanma olayı
+
+ele.clear_btn.addEventListener("click", () => {
+  const res = confirm("Want to clear?");
+
+  if (res) {
+    // sepet dizisini sıfırla
+    basket = [];
+
+    // locali temizle
+    localStorage.removeItem("basket");
+
+    // arayuzu temizle
+
+    ele.basket_list.innerHTML = " ";
+  }
+});
+
+// tek tek silme
+
+ele.basket_list.addEventListener("click", (e) => {
+  if (e.target.id == "delete-item") {
+    // tıklanılan elemanın  id erişmeg
+
+    const parent = e.target.parentElement;
+    const id = parent.id;
+    console.log(id);
+    // idsine göre diziden kaldırma
+
+    basket = basket.filter((i) => i.id !== id);
+
+    // locale güncel diziyi
+    localStorage.setItem("basket", JSON.stringify(basket));
+
+    // arayuzden ilgili elemanı kaldırma
+    parent.remove();
+  }
+});

@@ -80,6 +80,11 @@ input {
   position: relative;
 }
 
+.CartBtn p,
+.CartBtn i {
+  pointer-events: none;
+}
+
 .IconContainer {
   position: absolute;
   left: -50px;
@@ -227,7 +232,7 @@ main {
 }
 @media (max-width: 1200px) {
   main {
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 1fr 6fr 1fr;
   }
 }
 
@@ -465,4 +470,42 @@ main #recipe {
   display: flex;
   justify-content: center;
   margin: 40px auto;
+}
+
+main #cart div {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+main #cart div h2 {
+  color: #a9c9ff;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.136);
+}
+main #cart div button {
+  background-color: #a9c9ff;
+  color: white;
+  cursor: pointer;
+  transition: filter 0.3s;
+}
+main #cart div button:hover {
+  filter: brightness(70%);
+}
+main #cart ul {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+main #cart ul::-webkit-scrollbar {
+  width: 6px;
+}
+main #cart ul::-webkit-scrollbar-thumb {
+  background: black;
+}
+main #cart ul i {
+  cursor: pointer;
+  font-size: 20px;
+}
+main #cart ul i:hover {
+  color: red;
+  background-color: rgba(128, 128, 128, 0.604);
+  border-radius: 4px;
 }/*# sourceMappingURL=style.css.map */

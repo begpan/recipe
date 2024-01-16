@@ -3,6 +3,8 @@ export const ele = {
   result_list: document.querySelector("#results"),
   recipe_area: document.querySelector("#recipe"),
   like_list: document.querySelector(".dropdown"),
+  basket_list: document.querySelector("#basket"),
+  clear_btn: document.querySelector("#clear"),
 };
 
 // bildirim gönderir
@@ -32,7 +34,6 @@ export const renderLoader = (outlet) => {
 };
 
 export const renderResults = (result) => {
-  console.log(result);
   ele.result_list.innerHTML = result
     .map(
       (recipe) => `
