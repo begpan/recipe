@@ -12,7 +12,7 @@ It is a website created with JavaScript that allows you to search for recipes, l
 
 <h3>Links</h3>
 
-https://rrecipess.netlify.app/
+https://rrecipess.netlify.app/ </br>
 https://recipe-1j.vercel.app/
 
 <h3>Technologies Used</h3>
