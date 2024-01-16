@@ -1,4 +1,4 @@
-![recipe](https://github.com/begpan/recipe/assets/145170180/e0ec2531-03fb-4bd7-9513-4d80f1bc4375)<h2>Recipe</h2>
+<h2>Recipe</h2>
 
 It is a website created with JavaScript that allows you to search for recipes, like them, print the contents of the liked ones on the screen, and add the saved recipes to the cart.
 
