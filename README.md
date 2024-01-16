@@ -1,4 +1,4 @@
-<h2>Recipe</h2>
+![recipe](https://github.com/begpan/recipe/assets/145170180/e0ec2531-03fb-4bd7-9513-4d80f1bc4375)<h2>Recipe</h2>
 
 It is a website created with JavaScript that allows you to search for recipes, like them, print the contents of the liked ones on the screen, and add the saved recipes to the cart.
 
@@ -23,3 +23,7 @@ https://recipe-1j.vercel.app/
 •JavaScript </br>
 
 <h3>Screen Gif</h3>
+
+![recipe](https://github.com/begpan/recipe/assets/145170180/cadd6a20-9fbc-4864-86ef-45562823a3da)
+
+
